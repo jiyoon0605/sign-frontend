@@ -41,7 +41,7 @@ const Login:React.FC=()=>{
         else if(state.result==="fail"){
             alert(state.reason);
         }
-    },[state]);
+    },[state,dispatch,histroy]);
 
     return <S.Container>
         <S.Title>로그인</S.Title>

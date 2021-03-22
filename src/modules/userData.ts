@@ -35,6 +35,7 @@ const userDataReducer=(state:UserData={
 
 
 function* request(action:UserDataActionType){
+    console.log("request")
     try{
         const {data}=yield call([clinet,"get"],"/auth/userData");
         const {id,name}=data.data;

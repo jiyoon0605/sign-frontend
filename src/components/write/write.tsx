@@ -1,21 +1,21 @@
-import React,{useReducer} from 'react';
+import React from 'react';
 import * as S from 'style/write';
 
-interface postType{
-    imgData:File,
-    imgPath:string,
+// interface postType{
+//     imgData:File,
+//     imgPath:string,
 
-}
-interface actionType{
-    type:"IMAGE"|"END_DATE"|"GOAL"|"TITLE"|"CONTENT";
-    data:string
-};
+// }
+// interface actionType{
+//     type:"IMAGE"|"END_DATE"|"GOAL"|"TITLE"|"CONTENT";
+//     data:string
+// };
 
 const Write:React.FC=()=>{
     
-    const reducer=(state:postType|{},action:actionType)=>{
+    // const reducer=(state:postType|{},action:actionType)=>{
 
-    }
+    // }
 
 
 

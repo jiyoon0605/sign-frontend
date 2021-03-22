@@ -3,7 +3,10 @@ import {Switch,Route,Link}from 'react-router-dom'
 import {useHistory}from 'react-router';
 import Register from 'components/register';
 import Login from 'components/login';
-import * as S from 'style/container'
+import Write from 'components/write'
+
+import * as S from 'style/container';
+
 const Container:React.FC=()=>{
     const history=useHistory()
     return(
@@ -21,6 +24,7 @@ const Container:React.FC=()=>{
             <Switch>
                 <Route path="/register" component={Register}/>
                 <Route path="/login"component={Login}/>
+                <Route path="/write"component={Write}/>
             </Switch>
         </>
 

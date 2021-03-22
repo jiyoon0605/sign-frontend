@@ -7,6 +7,8 @@ import { RootState} from 'modules';
 import {useHistory}from 'react-router'
 
 import {loginRequest}from 'modules/login'
+import {userDataRequest}from 'modules/userData';
+
 const Login:React.FC=()=>{
     const [email,setEmail]=useState<string>("");
     const [password,setPassword]=useState<string>("");
@@ -33,6 +35,8 @@ const Login:React.FC=()=>{
     useEffect(()=>{
         if(state.result==="success"){
             alert("로그인에 성공하셨습니다!");
+            histroy.push("/");
+            dispatch(userDataRequest());
         }
         else if(state.result==="fail"){
             alert(state.reason);

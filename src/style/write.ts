@@ -31,9 +31,45 @@ export const SubmitBtn=styled.div`
     color:white;
     font-family:"Medium";
 
-    border:1px solid black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    &:active{
+        box-shadow:inset 2px 2px 3px 0 rgba(0,0,0,0.5);
+    }
+
+    cursor: pointer;
+`;
+
+export const ImageContainer=styled.div`
+    width:100%;
+    height:400px;
+    background-color:grey;
+
+    object-fit:cover;
+`
+
+export const ImgInput=styled.input`
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+`;
+
+export const ImgLabel=styled.label`
+    width:130px;
+    height:30px;
+
+    margin:10px;
+
+    background-color:#FF4141;
 
     display:flex;
     justify-content:center;
     align-items:center;
-`
+
+    font-family:"Medium";
+    color:white;
+`;

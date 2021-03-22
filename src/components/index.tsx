@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Switch,Route,Link}from 'react-router-dom'
 import {useHistory}from 'react-router';
 import Register from 'components/register';
@@ -7,8 +7,21 @@ import Write from 'components/write'
 
 import * as S from 'style/container';
 
+import {userDataRequest}from 'modules/userData';
+
+import {useDispatch, useSelector}from 'react-redux';
+import { RootState} from 'modules';
+
 const Container:React.FC=()=>{
-    const history=useHistory()
+    const history=useHistory();
+    const state=useSelector((state:RootState)=>state.userDataReducer);
+    const dispatch=useDispatch();
+
+    useEffect(()=>{
+        dispatch(userDataRequest());
+    },[])
+
+
     return(
         <>
             <S.Header>

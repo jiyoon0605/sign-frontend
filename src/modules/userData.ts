@@ -6,19 +6,16 @@ interface UserData{
     name:string,
     id:string
 };
-interface UserDataFail{
-    reason:string
-};
+
 
 const USERDATA_REQUEST="USERDATA_REQUEST";
 const USERDATA_SUCCESS="USERDATA_SUCCESS";
-const USERDATA_FAIL="USERDATA_FAIL";
+
 
 export const userDataRequest=createAction(USERDATA_REQUEST);
 const userDataSuccess=createAction<UserData>(USERDATA_SUCCESS);
-const userDataFail=createAction<UserDataFail>(USERDATA_FAIL);
 
-type UserDataActionType=PayloadAction<UserData>|PayloadAction<null>|PayloadAction<UserDataFail>;
+type UserDataActionType=PayloadAction<UserData>|PayloadAction<null>;
 
 const userDataReducer=(state:UserData={
         name:"",
@@ -34,7 +31,7 @@ const userDataReducer=(state:UserData={
 };
 
 
-function* request(action:UserDataActionType){
+function* request(){
     console.log("request")
     try{
         const {data}=yield call([clinet,"get"],"/auth/userData");
@@ -45,7 +42,7 @@ function* request(action:UserDataActionType){
         }))
     }
     catch(err){
-
+        alert(err);
     }
 };
 

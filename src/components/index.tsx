@@ -1,4 +1,4 @@
-import React,{useEffect,useCallback } from 'react'
+import React,{useEffect } from 'react'
 import {Switch,Route,Link}from 'react-router-dom'
 import {useHistory}from 'react-router';
 import Register from 'components/register';

@@ -17,7 +17,7 @@ const Container:React.FC=()=>{
                 </S.Logo>
                 <S.NavList>
                     <S.NavItem>전체 게시물</S.NavItem>
-                    <S.NavItem>글쓰기</S.NavItem>
+                    <S.NavItem onClick={()=>history.push("/write")}>글쓰기</S.NavItem>
                     <S.NavItem onClick={()=>history.push("/login")}>로그인</S.NavItem>
                 </S.NavList>
             </S.Header>

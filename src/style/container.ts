@@ -11,7 +11,7 @@ export const Header=styled.header`
     @media screen and (max-width:700px){
         margin:0;
         margin-top:10px;
-        width:100vw;
+
     }
 
     .link{

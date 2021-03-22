@@ -9,12 +9,10 @@ import * as S from 'style/container';
 
 import {userDataRequest}from 'modules/userData';
 
-import {useDispatch, useSelector}from 'react-redux';
-import { RootState} from 'modules';
+import {useDispatch}from 'react-redux';
 
 const Container:React.FC=()=>{
     const history=useHistory();
-    const state=useSelector((state:RootState)=>state.userDataReducer);
     const dispatch=useDispatch();
 
     useEffect(()=>{

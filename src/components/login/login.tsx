@@ -16,7 +16,7 @@ const Login:React.FC=()=>{
 
     const onHandleClick=()=>{
         const emailRegExp=/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[00-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-        if(email.match(emailRegExp)!= null){
+        if(!emailRegExp.test(email)){
             alert("이메일 형식을 맞춰주세요.");
             return;
         }

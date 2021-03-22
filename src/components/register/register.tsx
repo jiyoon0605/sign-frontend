@@ -81,7 +81,7 @@ const Regiter:React.FC=()=>{
         else if(!isSamePasword){
             alert("비밀번호가 맞지 않습니다.");
         }
-        else if(email.match(emailRegExp)!= null){
+        else if(!emailRegExp.test(email)){
             alert("이메일 형식에 맞게 작성해주세요.");
         }
         else if(password.length<8){

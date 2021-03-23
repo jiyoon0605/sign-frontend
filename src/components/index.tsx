@@ -17,7 +17,7 @@ const Container:React.FC=()=>{
     const dispatch=useDispatch();
 
     useEffect(()=>{
-        dispatch(userDataRequest());
+        if(localStorage.getItem("accessToken")) dispatch(userDataRequest());
     },[dispatch]);
 
 

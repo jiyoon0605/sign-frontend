@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "https://signature-movement-jy.herokuapp.com", 
+  "proxy": "https://dsm-sign.herokuapp.com", 
   "private": true,
   "dependencies": {
     "@ramonak/react-progress-bar": "^2.1.3",

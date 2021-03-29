@@ -11,22 +11,23 @@ interface LoginState{
 interface LoginSuccess{
     result:"success",
 };
-interface LoginFail{
-    result:"fail",
-    reason:string|Error|Object
-};
 
-type LoginType=LoginState|LoginSuccess|LoginFail;
+
+interface LogOut{
+    result:"logout"
+}
+
+type LoginType=LoginState|LoginSuccess|LogOut;
 
 const LOGIN_REQUEST="LOGIN_REQUEST";
 const LOGIN_SUCCESS="LOGIN_SUCCESS";
-const LOGIN_FAIL="LOGIN_FAIL";
+const LOG_OUT="LOG_OUT";
 
 export const loginRequest=createAction<LoginState>(LOGIN_REQUEST);
 const loginSuccess=createAction<LoginSuccess>(LOGIN_SUCCESS);
-const loginFail=createAction<LoginFail>(LOGIN_FAIL);
+export const logoutRequest=createAction<LogOut>(LOG_OUT);
 
-type LoginActionType=PayloadAction<LoginState>|PayloadAction<LoginSuccess>|PayloadAction<LoginFail>;
+type LoginActionType=PayloadAction<LoginState>|PayloadAction<LoginSuccess>|PayloadAction<LogOut>;
 
 const loginReducer=(state:LoginType={
     email:"",
@@ -34,10 +35,8 @@ const loginReducer=(state:LoginType={
 },action:LoginActionType)=>{
     switch(action.type){
         case LOGIN_REQUEST:
-            return action.payload;
         case LOGIN_SUCCESS:
-            return action.payload;
-        case LOGIN_FAIL:
+        case LOG_OUT:
             return action.payload;
         default:
             return state;
@@ -47,17 +46,14 @@ const loginReducer=(state:LoginType={
 
 function* request(action:LoginActionType){
     try{
-        const {data}= yield call([axios,"post"],"/auth/login",action.payload);
+        const {data} = yield call([axios,"post"],"/auth/login",action.payload);
          yield put(loginSuccess({
              result:"success"
-         }));
+         }));     
          localStorage.setItem("accessToken",data.token);
     }
     catch(err){
-        yield put(loginFail({
-            result:"fail",
-            reason:err.response.data.error
-        }));
+        alert(err.response.data.error);
     }
 }
 

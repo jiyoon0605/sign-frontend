@@ -1,65 +1,108 @@
 import { createAction,  PayloadAction } from "@reduxjs/toolkit";
-import clinet from 'api';
+import getRequest from 'api';
 import {  call,  put, takeLatest } from "redux-saga/effects";
 
-
-interface FormDataType{
-    result?:"pending",
-    data:FormData
+interface InitState{
+    result:"no started"
 }
 
-interface WriteSuccess{
-    result:"success",
+interface ListData{
+  writer:string
+}
+export interface DetailState{
+    _id:string,
+    content:string,
+    createNum:string,
+    title:string,
+    endDate:string,
+    writer:string,
+    writerId:string,
+    goalNum: number,
+    list:ListData[],
+    createAt:string,
+    category:string
+  
+    
 };
 
-interface WriteFail{
-    result:"fail"
-    reason:string|Error
+
+interface RequestState{
+    result?:"pednning",
+    id?:string
 };
 
-type WriteType=FormDataType|WriteSuccess|WriteFail;
+interface RequestSuccess{
+    result:"list",
+    data:DetailState[]
+};
+interface DetailRequestSuccess{
+    result:"detail",
+    data:DetailState
+};
 
-const WRITE_REQUEST="WRITE_REQUEST";
-const WRITE_SUCCESS="WRITE_SUCCESS";
-const WRITE_FAIL="WRITE_FAIL";
+type CategoryType="other"|"sport"|"enter"|"individ"|"game"|"all";
 
-export const writeRequest=createAction<FormDataType>(WRITE_REQUEST);
-const writeSuccess=createAction<WriteSuccess>(WRITE_SUCCESS);
-const wrtieFail=createAction<WriteFail>(WRITE_FAIL);
+const POST_LIST_REQUEST="POST_LIST_REQUEST";
+const POST_SUCCESS="POST_SUCCESS";
 
-type WriteActionType=PayloadAction<FormDataType>|PayloadAction<WriteSuccess>|PayloadAction<WriteFail>;
+const POST_DETAIL_REQUEST="POST_DETAIL_REQUEST";
 
-const writeReducer=(state:WriteType={result:"pending", data:new FormData()},action:WriteActionType):WriteType=>{
+
+export const listRequest=createAction<CategoryType>(POST_LIST_REQUEST);
+export const detailRequest=createAction<RequestState>(POST_DETAIL_REQUEST);
+const requestSuccess=createAction<RequestSuccess|DetailRequestSuccess>(POST_SUCCESS);
+
+
+type PostType=RequestSuccess|InitState|RequestState|DetailRequestSuccess;
+type PostActionType=PayloadAction<RequestState>|PayloadAction<RequestSuccess>|PayloadAction<DetailRequestSuccess>;
+
+const postReducer=(state:PostType={result:"no started"},action:PostActionType):PostType=>{
     switch(action.type){
-        case WRITE_REQUEST:
-        case WRITE_SUCCESS:
-        case WRITE_FAIL:
+        case POST_SUCCESS:
             return action.payload;
         default:
-            return state;
+            return state
     }
-
 }
 
-
-function* request(action:PayloadAction<FormDataType>){
-    const userData=action.payload;
-    console.log(userData.data);
+function* postListRequest(action:PayloadAction<CategoryType>){
     try{
-        yield call([clinet,"post"],"/post/upload",userData.data);
-        yield put(writeSuccess({
-            result:"success",
-        }))
-    }catch(e){
-        yield put(wrtieFail({
-            result:"fail",
-            reason:e
-        }))
+        if(action.payload==="all"){
+            const {data} = yield call([getRequest(),"get"],`/post/`);
+            yield put(requestSuccess({
+            result:"list",
+            data
+         }));
+        }else{
+            const {data}=yield call([getRequest(),"get"],`/post/category/${action.payload}`);
+            yield put(requestSuccess({
+                result:"list",
+                data
+            }));
+        } 
+
+         
+    }
+    catch(err){
+        alert(err.response.data.error);
     }
 }
 
-function* watchWrite(){
-    yield takeLatest(WRITE_REQUEST,request);
+function* postDetailRequest(action:PayloadAction<RequestState>){
+    try{
+        const {data}=yield call([getRequest(),"get"],`/post/${action.payload.id}`);
+        yield put(requestSuccess({
+            result:"detail",
+            data:data.post
+        }));
+    }catch(err){
+         alert(err);
+    }
 }
 
-export {writeReducer,watchWrite}
+function* watchPost(){
+    yield takeLatest(POST_LIST_REQUEST,postListRequest);
+    yield takeLatest(POST_DETAIL_REQUEST,postDetailRequest);
+}
+
+export {postReducer,watchPost};

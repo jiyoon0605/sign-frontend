@@ -73,9 +73,10 @@ export const ProgressBox=styled.div`
     font-family:"Bold";
 `;
 export const Message=styled.div`
-    margin-top:20px;
+    padding:.5rem 3rem;
     font-family:"Bold";
-    color:#ff4141;
+    color:white;
+    background-color:#ff4141;
 
 `;
 export const CurNum=styled.div`
@@ -175,6 +176,10 @@ export const ContentsBox=styled.div`
     box-sizing:border-box;
     padding:2rem;
 
+    overflow-wrap: break-word;
+    word-break: break-all;
+    word-wrap: break-word;
+
     @media screen and (max-width:1000px){
         width:100%;
         margin:0 5px;
@@ -182,6 +187,10 @@ export const ContentsBox=styled.div`
     margin-bottom:30px;
 
     position:relative;
+
+    p{
+        margin:.1rem;
+    }
 `;
 
 export const DeleteButton=styled.button`

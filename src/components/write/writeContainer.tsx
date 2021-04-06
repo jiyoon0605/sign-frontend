@@ -62,14 +62,6 @@ const WriteContainer:React.FC=()=>{
           
       }
 
-      const adjustHeight=()=> {
-          
-        if(textArea.current){
-           const height=textArea.current.scrollHeight;
-           textArea.current.style.height=`${height}px`;
-        }
-        
-      };
 
       const getDateString = () => {
         const date = new Date();
@@ -85,7 +77,7 @@ const WriteContainer:React.FC=()=>{
     return <WritePresenter
                 imgPath={imgPath} title={title} textArea={textArea } content={content} num={num} date={date}category={category}
                 setImgData={setImgData}imageReader={imageReader} setTitle={setTitle} setContent={setContent}
-                adjustHeight={adjustHeight}setNum={setNum}setDate={setDate}getDateString={getDateString} setCategory={setCategory} onSubmit={onSubmit} />
+                setNum={setNum}setDate={setDate}getDateString={getDateString} setCategory={setCategory} onSubmit={onSubmit} />
 };
 
 export default WriteContainer;

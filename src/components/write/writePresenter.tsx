@@ -12,7 +12,6 @@ type Props={
     textArea:((instance: HTMLTextAreaElement | null) => void) | React.RefObject<HTMLTextAreaElement> | null | undefined,
     content:string,
     setContent:(text:string)=>void,
-    adjustHeight:()=>void,
     num:string,
     setNum:(num:string)=>void,
     date:string,
@@ -27,12 +26,11 @@ type Props={
 
 const WritePresenter:React.FC<Props>=({
     imgPath,title,textArea,content,num,date,category,
-    setImgData,imageReader,setTitle,setContent,adjustHeight,setNum,setDate,getDateString,setCategory,onSubmit
+    setImgData,imageReader,setTitle,setContent,setNum,setDate,getDateString,setCategory,onSubmit
 })=>{
 
     return <S.Container>
         <S.ContainerBox>
-            <S.ImageContainer src={imgPath}/>
             <S.ImgInput id="img" type="file" accept="image/*"
                onChange={(e)=>{
                 if(e.target.files){
@@ -42,6 +40,7 @@ const WritePresenter:React.FC<Props>=({
                 
             }}/>
             <S.ImgLabel htmlFor="img">이미지 추가</S.ImgLabel>
+            {imgPath&&<S.ImageContainer src={imgPath}/>}
             <S.ContentsContainer>
                 <S.Title>제목</S.Title>
                 <S.TextInput placeholder="제목" value={title} onChange={e=>{setTitle(e.target.value)}}/>
@@ -50,7 +49,6 @@ const WritePresenter:React.FC<Props>=({
                                  placeholder="내용" 
                                  value={content} 
                                  onChange={e=> setContent(e.target.value)}
-                                 onKeyUp={e=> adjustHeight()}
                                  />
                 <S.Title>목표 인원</S.Title>
                 <S.TextInput placeholder="목표 인원" 

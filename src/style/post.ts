@@ -67,7 +67,7 @@ export const ItemContainer=styled.article`
     position:relative;
     cursor: pointer;
     width:55rem;
-    height:12rem;
+    height:15rem;
 
     margin:1rem;
 
@@ -87,7 +87,7 @@ export const ItemContainer=styled.article`
     }
      @media screen and (max-width:1000px){
          width:20rem;
-         height:30rem;
+         height:36rem;
          
          flex-direction:column;
      }
@@ -103,7 +103,7 @@ export const ItemMain=styled.div`
 
     @media screen and (max-width:1000px){
         width:20rem;
-        height:15rem;
+        height:10rem;
          
          flex-direction:column;
      }
@@ -147,7 +147,7 @@ export const DateBox=styled.div`
     display:flex;
 `;
 export const MenuText=styled.h5`
-    margin:.1rem 0;
+    margin:0;
     padding:0;
     &::after{
         content:" : "

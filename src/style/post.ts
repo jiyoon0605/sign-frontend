@@ -87,7 +87,7 @@ export const ItemContainer=styled.article`
     }
      @media screen and (max-width:1000px){
          width:20rem;
-         height:36rem;
+         height:30rem;
          
          flex-direction:column;
      }

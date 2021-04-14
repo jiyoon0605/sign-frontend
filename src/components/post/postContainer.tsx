@@ -8,6 +8,7 @@ import PostPresenter from 'components/post/postPresenter';
 
 export type DataType={
         _id:string,
+        image:string,
         content:string,
         createNum:string,
         title:string,

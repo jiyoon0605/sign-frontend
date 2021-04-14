@@ -3,15 +3,14 @@ import React from 'react'
 import * as S from "style/post";
 type Props={
     gotoDetail:()=>void,
-    imgPath:string,
     data:DataType,
     percentage:number
 }
-const PopularPostPresenter:React.FC<Props>=({gotoDetail,data,imgPath,percentage})=>{
+const PopularPostPresenter:React.FC<Props>=({gotoDetail,data,percentage})=>{
 
 
     return <S.PopularContainer onClick={gotoDetail}>
-            <S.PopularImg alt={data.title} src={imgPath} />
+            <S.PopularImg alt={data.title} src={data.image} />
             <S.PopularInfo className="infoContainer">
                 <h5>#{data.category}</h5>
                 <h1>{data.title}</h1>

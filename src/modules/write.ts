@@ -6,7 +6,7 @@ type State="init"|"request"|"complate";
 
 interface FormDataType{
     result?:"request",
-    data:FormData
+    data:{}
 }
 
 
@@ -37,6 +37,7 @@ function* request(action:PayloadAction<FormDataType>){
     const userData=action.payload;
     console.log(userData.data);
     try{
+        console.log(userData.data)
         yield call([clinet(),"post"],"/post/upload",userData.data);
         yield put(writeSuccess())
     }catch(e){

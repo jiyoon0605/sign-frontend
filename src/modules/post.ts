@@ -11,6 +11,7 @@ interface ListData{
 }
 export interface DetailState{
     _id:string,
+    image:string,
     content:string,
     createNum:string,
     title:string,

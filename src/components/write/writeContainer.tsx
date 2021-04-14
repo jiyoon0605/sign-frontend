@@ -6,6 +6,7 @@ import {writeComplate, writeRequest}from 'modules/write'
 import { CategoryType } from 'modules/post';
 import {useHistory}from 'react-router'
 import WritePresenter from 'components/write/writePresenter';
+import axios from 'axios';
 
 const WriteContainer:React.FC=()=>{
     const [imgData,setImgData]=useState<File>();
@@ -20,6 +21,8 @@ const WriteContainer:React.FC=()=>{
     const dispatch=useDispatch();
     const state=useSelector((state:RootState)=>state.writeReducer);
     const histroy=useHistory();
+
+    const url = "https://api.cloudinary.com/v1_1/dsm-sign/image/upload"
 
     const modules = {
         toolbar: [
@@ -50,7 +53,7 @@ const WriteContainer:React.FC=()=>{
         };
       };
       
-      const onSubmit=()=>{
+      const onSubmit=async()=>{
         if(!localStorage.getItem("accessToken")){
             alert("로그인 후 이용 가능합니다.");
             histroy.push("/post");
@@ -59,15 +62,30 @@ const WriteContainer:React.FC=()=>{
               alert("모든 빈칸을 채워 주세요.");
               return;
           }
-          const data=new FormData();
-          data.append("img",imgData);
-          data.append("title",title);
-          data.append("content",content);
-          data.append("endDate",date);
-          data.append("goalNum",num);
-          data.append("category",category);
 
-          dispatch(writeRequest({data}))
+          const imgFile=new FormData();
+          imgFile.append("file",imgData);
+          imgFile.append("upload_preset","g3qytwno");
+
+          let imgUrl=""
+          
+          await axios.post(url,imgFile)
+          .then((res:any)=>{
+            imgUrl=res.data.secure_url;
+            }
+          )
+          .catch(console.log);
+
+          const data={
+            image:imgUrl,
+            title,
+            content,
+            endDate:date,
+            goalNum:num,
+            category
+          }
+
+          dispatch(writeRequest({data}));
           
       }
 

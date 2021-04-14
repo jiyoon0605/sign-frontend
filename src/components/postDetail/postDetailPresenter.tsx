@@ -18,12 +18,12 @@ export type DataType={
     createAt:string,
     category:string,
     activation:boolean,
+    image:string
 
 }
 
 type Props={
     data:DetailState,
-    imgPath:string,
     percentage:number,
     onSignOn:()=>void,
     maskingName:(s:string)=>string,
@@ -32,14 +32,14 @@ type Props={
 }
 
 
-const PostDetailPresenter:React.FC<Props>=({data,imgPath,percentage,onSignOn,maskingName,onDelete,userData})=>{
+const PostDetailPresenter:React.FC<Props>=({data,percentage,onSignOn,maskingName,onDelete,userData})=>{
 
     return (<div>
     <S.Container>
         <S.HeadInfo>
          <S.ContainerBox>
             <S.InfoBox>
-              <S.ImgBox src={imgPath}/>
+              <S.ImgBox src={data.image}/>
               <S.TextBox> 
               {percentage>=100&& <S.Message>목표 달성 성공!</S.Message>}
                 <S.Title>{data.title}</S.Title>

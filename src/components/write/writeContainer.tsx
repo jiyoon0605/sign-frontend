@@ -24,6 +24,8 @@ const WriteContainer:React.FC=()=>{
 
     const url = "https://api.cloudinary.com/v1_1/dsm-sign/image/upload"
 
+
+
     const modules = {
         toolbar: [
           [{ 'header': [1, 2, false] }],

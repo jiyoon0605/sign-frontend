@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {Link}from 'react-router-dom';
-export const Container=styled.div`
+export const Container=styled.form`
     margin-top:10rem;
     display:flex;
     flex-direction:column;

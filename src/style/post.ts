@@ -15,10 +15,10 @@ export const Container=styled.div`
 `;
 export const PostContainer=styled.div`
     width:60rem;
-    height: 90rem;
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
 
     overflow-y:scroll;
@@ -38,6 +38,10 @@ export const PostContainer=styled.div`
     @media screen and (max-width:1000px){
        align-items:center;
        width:100%;
+       flex-direction:row;
+       align-items:flex-start;
+       flex-wrap:wrap;
+       justify-content:left;
     }
 `;
 
@@ -86,10 +90,14 @@ export const ItemContainer=styled.article`
         transform:scale(1.02);
     }
      @media screen and (max-width:1000px){
-         width:20rem;
-         height:36rem;
-         
+         width:48%;
+         height:23rem;
+         margin:.3rem;
          flex-direction:column;
+     }
+    @media screen and (max-width:500px){
+
+         margin:.25rem;
      }
 `;
 export const ItemMain=styled.div`
@@ -102,7 +110,7 @@ export const ItemMain=styled.div`
     padding:.5rem;
 
     @media screen and (max-width:1000px){
-        width:20rem;
+        width:100%;
         height:12rem;
          
          flex-direction:column;
@@ -115,7 +123,7 @@ export const ImageContainer=styled.img`
     margin-right:10px;
     @media screen and (max-width:1000px){
         width:100%;
-        height:20rem;
+        height:10rem;
     }
 `;
 export const Title=styled.h3`
@@ -188,6 +196,7 @@ export const CategoryContainer=styled.nav`
         width:100%;
         overflow:hidden;
         overflow-x:scroll;
+
     }
     margin-bottom:5rem;
     background-color:black;
@@ -264,7 +273,7 @@ export const PopularContainer=styled.div`
     display:flex;
 
     @media screen and (max-width:1000px){
-        width:100%;
+        width:90%;
         position:relative;
         flex-direction:column;
     }
@@ -323,7 +332,7 @@ export const PopularInfo=styled.div`
 export const FooterContainer=styled.footer`
     margin-top:10rem;
     width:100vw;
-    height:15rem;
+    height:5rem;
     box-shadow:-1px -1px 2px 0 rgba(0,0,0,0.5);
     background-color:black;
 `;

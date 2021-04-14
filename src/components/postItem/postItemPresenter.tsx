@@ -15,7 +15,6 @@ type Props={
 const PostItemPresenter:React.FC<Props>=({gotoDetail,imgPath,data,percentage})=>{  
     return(
         <S.ItemContainer onClick={gotoDetail}>
-
             <S.ImageContainer src={imgPath}/>
             <S.ItemMain>
                 <S.Title>{data.title}</S.Title>

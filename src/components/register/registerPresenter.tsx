@@ -15,10 +15,10 @@ const RegiterPresenter:React.FC<Props>=({registerData,requestAuthNum,setRegister
 
     return <S.Container>
         <S.Title>계정 생성</S.Title>
-        <span>
+        <div className="emailContainer">
         <S.InputEmail type="text" placeholder="이메일"value={registerData.email} onChange={e=>setRegisterData({type:"EMAIL",data:e.target.value})}/>
         <S.EmailBtn type="button"onClick={requestAuthNum}>인증번호 발송</S.EmailBtn>
-        </span>
+        </div>
         <S.InputField type="text" placeholder="인증번호" value={registerData.authNum} onChange={e=>setRegisterData({type:"AUTHNUM",data:e.target.value})}/>
         <S.InputField type="text" placeholder="이름"value={registerData.name} onChange={e=>setRegisterData({type:"NAME",data:e.target.value})}/>
         <S.InputField type="password" placeholder="비밀번호" value={registerData.password} onChange={e=>setRegisterData({type:"PASSWORD",data:e.target.value})}/>

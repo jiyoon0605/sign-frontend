@@ -67,7 +67,7 @@ export const ItemContainer=styled.article`
     position:relative;
     cursor: pointer;
     width:55rem;
-    height:15rem;
+    height:12rem;
 
     margin:1rem;
 
@@ -147,7 +147,7 @@ export const DateBox=styled.div`
     display:flex;
 `;
 export const MenuText=styled.h5`
-    margin:0;
+    margin:.1rem 0;
     padding:0;
     &::after{
         content:" : "

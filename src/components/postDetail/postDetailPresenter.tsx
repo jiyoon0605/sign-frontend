@@ -71,14 +71,11 @@ const PostDetailPresenter:React.FC<Props>=({data,imgPath,percentage,onSignOn,mas
         </S.ScrollContainer>
       </S.ListBox>
     </S.HeadInfo>
-        <S.ContentsBox>
-          {data.content.split(/\n/).map((e,i)=>{
-            return <p key={i}>{e}<br/></p>
-          })}
-         {data.writerId===userData.id&&<S.DeleteButton onClick={onDelete}>삭제하기</S.DeleteButton>}
-    
-    </S.ContentsBox> 
-    
+        <S.ContentsBox >
+          <div  dangerouslySetInnerHTML={ {__html: data.content}}></div>
+          {(data.writerId===userData.id&&percentage<100)&&<S.DeleteButton onClick={onDelete}>삭제하기</S.DeleteButton>}
+        </S.ContentsBox> 
+   
     </S.Container>
     
     </div>)

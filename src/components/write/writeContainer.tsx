@@ -21,6 +21,15 @@ const WriteContainer:React.FC=()=>{
     const state=useSelector((state:RootState)=>state.writeReducer);
     const histroy=useHistory();
 
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        ],
+      }
+
     useEffect(()=>{
         if(!localStorage.getItem("accessToken")){
             alert("로그인 후 이용 가능합니다.");
@@ -75,7 +84,7 @@ const WriteContainer:React.FC=()=>{
 
 
     return <WritePresenter
-                imgPath={imgPath} title={title} textArea={textArea } content={content} num={num} date={date}category={category}
+                imgPath={imgPath} title={title} textArea={textArea } content={content} num={num} date={date}category={category}modules={modules}
                 setImgData={setImgData}imageReader={imageReader} setTitle={setTitle} setContent={setContent}
                 setNum={setNum}setDate={setDate}getDateString={getDateString} setCategory={setCategory} onSubmit={onSubmit} />
 };

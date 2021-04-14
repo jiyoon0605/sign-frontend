@@ -23,7 +23,6 @@ const PostItemPresenter:React.FC<Props>=({gotoDetail,imgPath,data,percentage})=>
                     <S.MenuText>작성자</S.MenuText>
                     <S.DateText>{data.writer}</S.DateText>
                 </S.DateBox>
-                <S.Contents>{data.content}</S.Contents>
                 <S.DateBox>
                     <S.MenuText>시작 날짜</S.MenuText>
                     <S.DateText>{data.createAt.slice(0,10)}</S.DateText>

@@ -41,7 +41,7 @@ export const PostContainer=styled.div`
        align-items:flex-start;
        flex-wrap:wrap;
        justify-content:left;
-       margin-left:2rem;
+       justify-self:center;
     }
 `;
 

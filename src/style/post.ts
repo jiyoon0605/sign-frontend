@@ -67,7 +67,7 @@ export const ItemContainer=styled.article`
     position:relative;
     cursor: pointer;
     width:55rem;
-    height:15rem;
+    height:12rem;
 
     margin:1rem;
 
@@ -96,14 +96,14 @@ export const ItemMain=styled.div`
     display:flex;
     flex-direction:column;
     width:60rem;
-    height:15rem;
+    height:100%;
 
     box-sizing:border-box;
     padding:.5rem;
 
     @media screen and (max-width:1000px){
         width:20rem;
-        height:10rem;
+        height:12rem;
          
          flex-direction:column;
      }

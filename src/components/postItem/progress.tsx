@@ -5,8 +5,8 @@ const Container=styled.div`
     height: 1.2rem;
     background-color: #dadada;
     margin: .5rem .3rem;
-    margin-top:.5rem;
     border-radius:5px;
+    
 `;
 const FillStyle=styled.div<{percentage:number}>`
     height:100%;

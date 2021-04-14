@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const Container=styled.div`
     width:100vw;
-    height:150rem;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -42,6 +41,7 @@ export const PostContainer=styled.div`
        align-items:flex-start;
        flex-wrap:wrap;
        justify-content:left;
+       margin-left:2rem;
     }
 `;
 
@@ -90,14 +90,10 @@ export const ItemContainer=styled.article`
         transform:scale(1.02);
     }
      @media screen and (max-width:1000px){
-         width:48%;
+         width:47%;
          height:23rem;
-         margin:.3rem;
+         margin:0;
          flex-direction:column;
-     }
-    @media screen and (max-width:500px){
-
-         margin:.25rem;
      }
 `;
 export const ItemMain=styled.div`

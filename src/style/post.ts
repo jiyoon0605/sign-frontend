@@ -14,7 +14,7 @@ export const Container=styled.div`
 `;
 export const PostContainer=styled.div`
     width:60rem;
-
+    height:100vh;
     display:flex;
     flex-direction:column;
 
@@ -75,7 +75,7 @@ export const ItemContainer=styled.article`
 
     margin:1rem;
 
-    box-shadow:2px 2px 3px 0 rgba(0,0,0,0.5);
+    box-shadow:2px 2px 8px 0 rgba(0,0,0,0.2);
 
     display:flex;
 
@@ -86,14 +86,22 @@ export const ItemContainer=styled.article`
 
     &:hover{
         z-index:9;
-        box-shadow:3px 3px 8px 0 rgba(0,0,0,0.8);
-        transform:scale(1.02);
+        box-shadow:3px 3px 8px 0 rgba(0,0,0,0.3);
+        transform:scale(1.01);
     }
      @media screen and (max-width:1000px){
-         width:47%;
-         height:23rem;
-         margin:0;
-         flex-direction:column;
+        width:50%;
+        height:23rem;
+        margin:0;
+        flex-direction:column;
+        box-shadow:none;
+        outline:1px solid rgba(0,0,0,0.1);
+        &:hover{    
+            z-index:9;
+            box-shadow:none;
+            transform:none;
+           
+        }
      }
 `;
 export const ItemMain=styled.div`
@@ -194,7 +202,7 @@ export const CategoryContainer=styled.nav`
         overflow-x:scroll;
 
     }
-    margin-bottom:5rem;
+    margin-bottom:2rem;
     background-color:black;
     color:white;
     
@@ -225,7 +233,7 @@ export const NavButton=styled.button`
         background-color:rgba(200,200,200,0.5);
     }
     @media screen and (max-width:1000px){
-          width:6rem;
+        width:6rem;
         font-size:.8rem;
     }
 `;
@@ -326,10 +334,11 @@ export const PopularInfo=styled.div`
 //
 //footer
 export const FooterContainer=styled.footer`
-    margin-top:10rem;
+    margin-top:3rem;
     width:100vw;
-    height:5rem;
+    height:8rem;
     box-shadow:-1px -1px 2px 0 rgba(0,0,0,0.5);
     background-color:black;
+    color:white;
 `;
 

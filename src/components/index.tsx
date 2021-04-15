@@ -40,7 +40,7 @@ const Container:React.FC=()=>{
 
 
     return(
-        <>
+        <div>
             <S.Header>
                 <S.Logo>
                     <Link className="link" to="/post">Sign!</Link>
@@ -72,10 +72,11 @@ const Container:React.FC=()=>{
                 <Route exact path="/write"component={Write}/>
                 <Route exact path="/post/:id" component={PostDetail}/>
             </Switch>
+        
         </S.Container>
             
 
-        </>
+        </div>
 
     )
 

@@ -78,6 +78,7 @@ const WritePresenter:React.FC<Props>=({
                     <option value="sport">스포츠</option>
                     <option value="individ">개인</option>
                     <option value="area">지역</option>
+                    <option value="env">환경</option>
                 </S.CategoryContainer>
             </S.ContentsContainer>
            

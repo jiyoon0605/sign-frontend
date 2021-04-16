@@ -35,6 +35,9 @@ const WriteContainer:React.FC=()=>{
         ],
       }
 
+      useEffect(()=>{
+        window.addEventListener("beforeunload",(e)=>{});
+      },[])
     useEffect(()=>{
         if(!localStorage.getItem("accessToken")){
             alert("로그인 후 이용 가능합니다.");

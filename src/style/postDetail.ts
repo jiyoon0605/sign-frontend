@@ -193,6 +193,12 @@ export const ContentsBox=styled.div`
     p{
         margin:.1rem;
     }
+    .ql-align-center{
+        text-align:center;
+    }
+    .ql-align-right{
+        text-align:right;
+    }
 `;
 
 export const DeleteButton=styled.button`

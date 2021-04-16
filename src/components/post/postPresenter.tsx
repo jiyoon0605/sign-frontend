@@ -30,6 +30,7 @@ const PostPresenter:React.FC<Props>=({setAlign,onCategortyChange,list,popular})=
             <S.NavButton onClick={()=>onCategortyChange("sport")}>스포츠</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("individ")}>개인</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("area")}>지역</S.NavButton>
+            <S.NavButton onClick={()=>onCategortyChange("env")}>환경</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("other")}>기타</S.NavButton>
             </S.ScrollContainer>
             

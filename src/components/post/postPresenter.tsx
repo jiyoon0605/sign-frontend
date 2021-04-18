@@ -39,7 +39,9 @@ const PostPresenter:React.FC<Props>=({setAlign,onCategortyChange,list,popular})=
          <S.PostContainer>
         {list}
          </S.PostContainer>
-         <S.FooterContainer></S.FooterContainer>
+         <S.FooterContainer>
+            <a href="https://github.com/jiyoon0605"><i className="fab fa-github"></i></a>
+         </S.FooterContainer>
     </S.Container>
     
 };

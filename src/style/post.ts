@@ -340,5 +340,20 @@ export const FooterContainer=styled.footer`
     box-shadow:-1px -1px 2px 0 rgba(0,0,0,0.5);
     background-color:black;
     color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    box-sizing:border-box;
+    padding:2rem 3rem;
+
+    font-size:1rem;
+    a{
+        margin-left:1rem;
+        color:white;
+        text-decoration:none;
+        font-family:"Light"
+    }
 `;
 

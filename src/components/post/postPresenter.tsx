@@ -30,6 +30,7 @@ const PostPresenter:React.FC<Props>=({setAlign,onCategortyChange,list,popular})=
             <S.NavButton onClick={()=>onCategortyChange("sport")}>스포츠</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("individ")}>개인</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("area")}>지역</S.NavButton>
+            <S.NavButton onClick={()=>onCategortyChange("env")}>환경</S.NavButton>
             <S.NavButton onClick={()=>onCategortyChange("other")}>기타</S.NavButton>
             </S.ScrollContainer>
             
@@ -38,7 +39,9 @@ const PostPresenter:React.FC<Props>=({setAlign,onCategortyChange,list,popular})=
          <S.PostContainer>
         {list}
          </S.PostContainer>
-         <S.FooterContainer></S.FooterContainer>
+         <S.FooterContainer>
+            <a href="https://github.com/jiyoon0605"><i className="fab fa-github"></i></a>
+         </S.FooterContainer>
     </S.Container>
     
 };

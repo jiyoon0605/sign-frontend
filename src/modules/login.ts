@@ -43,14 +43,14 @@ function* request(action:LoginActionType){
     console.log("request");
     try{
         const client=axios.create({
-         //   baseURL:"https://dsm-sign.herokuapp.com",
+         baseURL:"https://dsm-sign.herokuapp.com",
         });
         const {data} = yield call([client,"post"],"/auth/login",action.payload);
          yield put(loginSuccess());     
          localStorage.setItem("accessToken",data.token);
     }
     catch(err){
-        alert(err.response.data.error);
+        alert("로그인 실패");
     }
 }
 

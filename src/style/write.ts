@@ -7,6 +7,19 @@ export const Container=styled.div`
     justify-content:center;
     align-items:center;
     background-color:#00000011;
+    .ql-container{
+        border-radius: 5px;
+        border: 1px solid #00000055;
+    }
+    .ql-container.ql-snow{
+        margin-top:.2rem;
+        border: 1px solid #00000055;
+    }
+    .ql-toolbar.ql-snow{
+        border: 1px solid #00000055;
+    }
+
+
 `;
 
 export const ContainerBox=styled.div`
@@ -20,8 +33,13 @@ export const ContainerBox=styled.div`
     @media screen and (max-width:1000px){
         width:100%;
         margin:0 5px;
+        margin-top:5rem;
     }
     margin-bottom:30px;
+
+    .ql-container{
+        font-family:"Medium";
+    }
 `;
 
 export const SubmitBtn=styled.div`

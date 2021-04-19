@@ -18,12 +18,12 @@ export type DataType={
     createAt:string,
     category:string,
     activation:boolean,
+    image:string
 
 }
 
 type Props={
     data:DetailState,
-    imgPath:string,
     percentage:number,
     onSignOn:()=>void,
     maskingName:(s:string)=>string,
@@ -32,14 +32,14 @@ type Props={
 }
 
 
-const PostDetailPresenter:React.FC<Props>=({data,imgPath,percentage,onSignOn,maskingName,onDelete,userData})=>{
+const PostDetailPresenter:React.FC<Props>=({data,percentage,onSignOn,maskingName,onDelete,userData})=>{
 
     return (<div>
     <S.Container>
         <S.HeadInfo>
          <S.ContainerBox>
             <S.InfoBox>
-              <S.ImgBox src={imgPath}/>
+              <S.ImgBox src={data.image}/>
               <S.TextBox> 
               {percentage>=100&& <S.Message>목표 달성 성공!</S.Message>}
                 <S.Title>{data.title}</S.Title>
@@ -71,14 +71,11 @@ const PostDetailPresenter:React.FC<Props>=({data,imgPath,percentage,onSignOn,mas
         </S.ScrollContainer>
       </S.ListBox>
     </S.HeadInfo>
-        <S.ContentsBox>
-          {data.content.split(/\n/).map((e,i)=>{
-            return <p key={i}>{e}<br/></p>
-          })}
-         {data.writerId===userData.id&&<S.DeleteButton onClick={onDelete}>삭제하기</S.DeleteButton>}
-    
-    </S.ContentsBox> 
-    
+        <S.ContentsBox >
+          <div  dangerouslySetInnerHTML={ {__html: data.content}}></div>
+          {(data.writerId===userData.id&&percentage<100)&&<S.DeleteButton onClick={onDelete}>삭제하기</S.DeleteButton>}
+        </S.ContentsBox> 
+   
     </S.Container>
     
     </div>)

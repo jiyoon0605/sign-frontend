@@ -1,5 +1,8 @@
 import React from 'react';
 import * as S from 'style/write';
+import ReactQuill from "react-quill";
+
+import "react-quill/dist/quill.snow.css";
 
 import { CategoryType } from 'modules/post';
 
@@ -19,13 +22,14 @@ type Props={
     getDateString:()=>string,
     category:CategoryType,
     setCategory:(text:CategoryType)=>void,
-    onSubmit:()=>void
+    onSubmit:()=>void,
+    modules:object
 
 
 }
 
 const WritePresenter:React.FC<Props>=({
-    imgPath,title,textArea,content,num,date,category,
+    imgPath,title,textArea,content,num,date,category,modules,
     setImgData,imageReader,setTitle,setContent,setNum,setDate,getDateString,setCategory,onSubmit
 })=>{
 
@@ -45,11 +49,16 @@ const WritePresenter:React.FC<Props>=({
                 <S.Title>제목</S.Title>
                 <S.TextInput placeholder="제목" value={title} onChange={e=>{setTitle(e.target.value)}}/>
                 <S.Title>내용</S.Title>
-                <S.ContentsInput ref={textArea}  
+                <ReactQuill  value={content} 
+                            onChange={(content, delta, source, editor)=>{setContent(editor.getHTML())}}
+                            modules={modules}
+                            style={{width:"90%", margin:"1rem", borderRadius:"5px"}}
+                            />
+                {/* <S.ContentsInput ref={textArea}  
                                  placeholder="내용" 
                                  value={content} 
                                  onChange={e=> setContent(e.target.value)}
-                                 />
+                                 /> */}
                 <S.Title>목표 인원</S.Title>
                 <S.TextInput placeholder="목표 인원" 
                              type="number" 
@@ -69,6 +78,7 @@ const WritePresenter:React.FC<Props>=({
                     <option value="sport">스포츠</option>
                     <option value="individ">개인</option>
                     <option value="area">지역</option>
+                    <option value="env">환경</option>
                 </S.CategoryContainer>
             </S.ContentsContainer>
            

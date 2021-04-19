@@ -15,7 +15,6 @@ type Props={
 const PostItemPresenter:React.FC<Props>=({gotoDetail,imgPath,data,percentage})=>{  
     return(
         <S.ItemContainer onClick={gotoDetail}>
-
             <S.ImageContainer src={imgPath}/>
             <S.ItemMain>
                 <S.Title>{data.title}</S.Title>
@@ -23,7 +22,6 @@ const PostItemPresenter:React.FC<Props>=({gotoDetail,imgPath,data,percentage})=>
                     <S.MenuText>작성자</S.MenuText>
                     <S.DateText>{data.writer}</S.DateText>
                 </S.DateBox>
-                <S.Contents>{data.content}</S.Contents>
                 <S.DateBox>
                     <S.MenuText>시작 날짜</S.MenuText>
                     <S.DateText>{data.createAt.slice(0,10)}</S.DateText>

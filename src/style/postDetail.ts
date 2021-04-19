@@ -6,6 +6,7 @@ export const Container=styled.div`
     flex-direction:column;
     align-items:center;
     @media screen and (max-width:1000px){
+        margin-top:5rem;
         width:100vw;
         overflow-x:hidden;
     }
@@ -19,6 +20,7 @@ export const ContainerBox=styled.div`
     @media screen and (max-width:1000px){
         width:auto;
         margin:0 5px;
+        box-shadow:none;
     }
     margin-bottom:30px;
 `;
@@ -190,6 +192,12 @@ export const ContentsBox=styled.div`
 
     p{
         margin:.1rem;
+    }
+    .ql-align-center{
+        text-align:center;
+    }
+    .ql-align-right{
+        text-align:right;
     }
 `;
 

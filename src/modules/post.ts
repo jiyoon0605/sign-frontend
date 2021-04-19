@@ -11,6 +11,7 @@ interface ListData{
 }
 export interface DetailState{
     _id:string,
+    image:string,
     content:string,
     createNum:string,
     title:string,
@@ -41,7 +42,7 @@ interface DetailRequestSuccess{
     data:DetailState
 };
 
-export type CategoryType="other"|"sport"|"enter"|"individ"|"game"|"all"|"area";
+export type CategoryType="other"|"sport"|"enter"|"individ"|"game"|"all"|"area"|"env";
 
 const POST_LIST_REQUEST="POST_LIST_REQUEST";
 const POST_SUCCESS="POST_SUCCESS";

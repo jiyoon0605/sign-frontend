@@ -2,7 +2,6 @@ import React, { useEffect, useState,useMemo } from 'react';
 import { RouteComponentProps, useHistory } from "react-router-dom";
 import {useDispatch,useSelector}from 'react-redux';
 import { RootState } from 'modules';
-import getRequest from 'api';
 import {deleteRequest, detailRequest,DetailState, signRequest}from 'modules/post';
 import 'react-circular-progressbar/dist/styles.css';
 import PostDetailPresenter from 'components/postDetail/postDetailPresenter';
@@ -24,11 +23,11 @@ interface PathParamsProps {
     list:[],
     createAt:"",
     category:"other",
-    activation:true
+    activation:true,
+    image:""
   }
   
 const PostDetailContainer:React.FunctionComponent<RouteComponentProps<PathParamsProps>>=({match})=>{
-    const [imgPath,setImgPath]=useState<string>("");
     const [data,setData]=useState<DetailState>(initData);
     const {id}=match.params;
     const dispatch=useDispatch();
@@ -39,11 +38,6 @@ const PostDetailContainer:React.FunctionComponent<RouteComponentProps<PathParams
 
     useEffect(()=>{
       dispatch(detailRequest({id}))
-      getRequest().post("/post/img",{
-          id
-      }).then((e:any)=>{
-          setImgPath(`data:${e.data.contentType};base64,${e.data.base64}`)
-        })
   },[id,dispatch]);
 
     useEffect(() => {
@@ -84,7 +78,7 @@ const PostDetailContainer:React.FunctionComponent<RouteComponentProps<PathParams
       dispatch(deleteRequest({id}));
       history.push("/post");
     }
-    return <PostDetailPresenter data={data} userData={userData} imgPath={imgPath} percentage={percentage} onSignOn={onSignOn} maskingName={maskingName} onDelete={onDelete}/>
+    return <PostDetailPresenter data={data} userData={userData} percentage={percentage} onSignOn={onSignOn} maskingName={maskingName} onDelete={onDelete}/>
    
 }
 

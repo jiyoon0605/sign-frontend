@@ -43,7 +43,7 @@ export const ImgBox=styled.img`
     }
 `;
 export const TextBox=styled.div`
-    margin-left:2rem;
+    margin-left:.5rem;
     display:flex;
     flex-direction:column;
     align-items:center;

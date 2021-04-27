@@ -87,7 +87,7 @@ export const CurNum=styled.div`
 `
 
 export const ApplyBtn=styled.button`
-    width:100%;
+    width:80%;
     height:50px;
     background-color:#ff4141;
     color:white;

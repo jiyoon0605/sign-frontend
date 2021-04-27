@@ -30,7 +30,10 @@ const MypageContainer:React.FC=()=>{
     }
 
     
-    return <MypagePresenter userData={state} data={data.data||[]} RequestMypost={RequestMypost} RequestAgreePost={RequestAgreePost}/>
+    return <MypagePresenter userData={state} 
+                            data={data.data||[]} 
+                            RequestMypost={RequestMypost} 
+                            RequestAgreePost={RequestAgreePost}/>
 }
 
 export default MypageContainer;

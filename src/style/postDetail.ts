@@ -43,7 +43,7 @@ export const ImgBox=styled.img`
     }
 `;
 export const TextBox=styled.div`
-    margin-left:.5rem;
+    margin:0 .5rem;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -59,6 +59,7 @@ export const TextBox=styled.div`
     }
 `;
 export const Title=styled.h2`
+height:2rem;
 font-family:"Bold";
 `
 export const PeriodText=styled.div`
@@ -87,7 +88,7 @@ export const CurNum=styled.div`
 `
 
 export const ApplyBtn=styled.button`
-    width:80%;
+    width:100%;
     height:50px;
     background-color:#ff4141;
     color:white;

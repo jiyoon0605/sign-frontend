@@ -55,7 +55,8 @@ const PostDetailPresenter:React.FC<Props>=({data,percentage,onSignOn,maskingName
                       text={`${percentage}% 달성`} 
                       strokeWidth={5}/>
                   </S.ProgressBox>
-                  { `${data.createAt.slice(0,10)} ~ ${data.endDate}`}
+                  <p>{ `${data.createAt.slice(0,10)} ~ ${data.endDate}`}</p>
+                  
                   <S.CurNum>{`${data.list.length} / ${data.goalNum}`}</S.CurNum>                 
                   {data.activation? <S.ApplyBtn onClick={onSignOn}> 동의하기 </S.ApplyBtn>:<p>이미 마감된 서명운동 입니다.</p>}
                  

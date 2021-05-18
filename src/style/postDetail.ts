@@ -35,7 +35,6 @@ export const InfoBox=styled.div`
     }
 `;
 export const ImgBox=styled.img`
-    width:680px;
     height:430px;
     object-fit:cover;
     @media screen and (max-width:1000px){
@@ -43,7 +42,7 @@ export const ImgBox=styled.img`
     }
 `;
 export const TextBox=styled.div`
-    margin:0 .5rem;
+    margin:0 1rem;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -56,6 +55,10 @@ export const TextBox=styled.div`
 
     @media screen and (max-width:1000px){
         padding:0;
+    }
+
+    p{
+        width:100%;
     }
 `;
 export const Title=styled.h2`
